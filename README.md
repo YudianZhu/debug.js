@@ -8,12 +8,12 @@
 * DEMO: 用服务器打开index.html
 
 * 开始使用。
-	<script src="debug.js"></script>
+		<script src="debug.js"></script>
 
 * 主动调用
-	console.log('msg');
-	console.info('msg');
-	console.error('msg');
-	console.warn('msg')
+		console.log('msg');
+		console.info('msg');
+		console.error('msg');
+		console.warn('msg')
 
 * 默认会不做整个页面的所有错误信息(window.onerror)，然后打印
