@@ -42,17 +42,32 @@
 		});
 
 		window.console = window.console || {};
+
+		window.console.log_origin = window.console.log;
 		window.console.log = function(msg) {
+			window.console.log_origin && 
+			window.console.log_origin.apply(window, arguments);
 			log(msg, 'log');
 		}
+
+		window.console.info_origin = window.console.info;
 		window.console.info = function(msg) {
+			window.console.info_origin && 
+			window.console.info_origin.apply(window, arguments);
 			log(msg, 'info');
 		}
-		window.console.error = function(msg) {
-			log(msg, 'error');
-		}
+
+		window.console.warn_origin = window.console.warn;
 		window.console.warn = function(msg) {
+			window.console.warn_origin && 
+			window.console.warn_origin.apply(window, arguments);
 			log(msg, 'warn');
+		}
+
+		window.console.error_origin = window.console.error;
+		window.console.error = function(msg) {
+			window.console.error_origin(msg);
+			log(msg, 'error');
 		}
 
 		window.onerror = function(errorMessage, scriptURI, lineNumber, columnNumber, errorObj) { 
