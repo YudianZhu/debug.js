@@ -8,9 +8,11 @@
 * DEMO: 用服务器打开index.html
 
 * 开始使用。
+
 		<script src="debug.js"></script>
 
 * 主动调用
+
 		console.log('msg');
 		console.info('msg');
 		console.error('msg');
