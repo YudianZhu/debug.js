@@ -46,27 +46,28 @@
 		window.console.log_origin = window.console.log;
 		window.console.log = function(msg) {
 			window.console.log_origin && 
-			window.console.log_origin.apply(window, arguments);
+			window.console.log_origin.apply(this, arguments);
 			log(msg, 'log');
 		}
 
 		window.console.info_origin = window.console.info;
 		window.console.info = function(msg) {
 			window.console.info_origin && 
-			window.console.info_origin.apply(window, arguments);
+			window.console.info_origin.apply(this, arguments);
 			log(msg, 'info');
 		}
 
 		window.console.warn_origin = window.console.warn;
 		window.console.warn = function(msg) {
 			window.console.warn_origin && 
-			window.console.warn_origin.apply(window, arguments);
+			window.console.warn_origin.apply(this, arguments);
 			log(msg, 'warn');
 		}
 
 		window.console.error_origin = window.console.error;
 		window.console.error = function(msg) {
-			window.console.error_origin(msg);
+			window.console.error_origin && 
+			window.console.error_origin.apply(this, arguments);
 			log(msg, 'error');
 		}
 
